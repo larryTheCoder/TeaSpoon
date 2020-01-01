@@ -38,6 +38,7 @@ namespace CortexPE;
 use CortexPE\block\BlockManager;
 use CortexPE\commands\CommandManager;
 use CortexPE\entity\EntityManager;
+use CortexPE\physics\RedstonePhysics;
 use CortexPE\handlers\{
 	EnchantHandler, PacketHandler
 };
@@ -360,6 +361,8 @@ class Main extends PluginBase {
 		if(self::$weatherEnabled){
 			$this->getScheduler()->scheduleRepeatingTask(new TickLevelsTask(), 1);
 		}
+
+		new RedstonePhysics();
 	}
 
 	private function checkConfigVersion(){
